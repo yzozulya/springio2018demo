@@ -5,7 +5,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
 import java.util.logging.Logger;
 
 /**
@@ -65,20 +64,21 @@ public class AccountsController {
 	 * @throws AccountNotFoundException
 	 *             If there are no matches at all.
 	 */
-	@RequestMapping("/accounts/owner/{name}")
-	public List<Account> byOwner(@PathVariable("name") String partialName) {
-		logger.info("accounts-service byOwner() invoked: "
-				+ accountRepository.getClass().getName() + " for "
-				+ partialName);
-
-		List<Account> accounts = accountRepository
-				.findByOwnerContainingIgnoreCase(partialName);
-		logger.info("accounts-service byOwner() found: " + accounts);
-
-		if (accounts == null || accounts.size() == 0)
-			throw new AccountNotFoundException(partialName);
-		else {
-			return accounts;
-		}
-	}
+	// TODO: owner search
+//	@RequestMapping("/accounts/owner/{name}")
+//	public List<Account> byOwner(@PathVariable("name") String partialName) {
+//		logger.info("accounts-service byOwner() invoked: "
+//				+ accountRepository.getClass().getName() + " for "
+//				+ partialName);
+//
+//		List<Account> accounts = accountRepository
+//				.findByOwnerContainingIgnoreCase(partialName);
+//		logger.info("accounts-service byOwner() found: " + accounts);
+//
+//		if (accounts == null || accounts.size() == 0)
+//			throw new AccountNotFoundException(partialName);
+//		else {
+//			return accounts;
+//		}
+//	}
 }

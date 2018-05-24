@@ -3,7 +3,6 @@ package com.example.client;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.util.StringUtils;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
@@ -11,14 +10,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import java.util.List;
 import java.util.logging.Logger;
 
 /**
  * Client controller, fetches Account info from the microservice via
  * {@link WebAccountsService}.
- * 
- * @author Paul Chapman
  */
 @Controller
 public class WebAccountsController {
@@ -55,17 +51,18 @@ public class WebAccountsController {
 		return "account";
 	}
 
-	@RequestMapping("/accounts/owner/{text}")
-	public String ownerSearch(Model model, @PathVariable("text") String name) {
-		logger.info("web-service byOwner() invoked: " + name);
-
-		List<Account> accounts = accountsService.byOwnerContains(name);
-		logger.info("web-service byOwner() found: " + accounts);
-		model.addAttribute("search", name);
-		if (accounts != null)
-			model.addAttribute("accounts", accounts);
-		return "accounts";
-	}
+	// TODO: owner search
+//	@RequestMapping("/accounts/owner/{text}")
+//	public String ownerSearch(Model model, @PathVariable("text") String name) {
+//		logger.info("web-service byOwner() invoked: " + name);
+//
+//		List<Account> accounts = accountsService.byOwnerContains(name);
+//		logger.info("web-service byOwner() found: " + accounts);
+//		model.addAttribute("search", name);
+//		if (accounts != null)
+//			model.addAttribute("accounts", accounts);
+//		return "accounts";
+//	}
 
 	@RequestMapping(value = "/accounts/search", method = RequestMethod.GET)
 	public String searchForm(Model model) {
@@ -84,11 +81,12 @@ public class WebAccountsController {
 			return "accountSearch";
 
 		String accountNumber = criteria.getAccountNumber();
-		if (StringUtils.hasText(accountNumber)) {
+		// TODO: owner search
+//		if (StringUtils.hasText(accountNumber)) {
 			return byNumber(model, accountNumber);
-		} else {
-			String searchText = criteria.getSearchText();
-			return ownerSearch(model, searchText);
-		}
+//		} else {
+//			String searchText = criteria.getSearchText();
+//			return ownerSearch(model, searchText);
+//		}
 	}
 }

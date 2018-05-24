@@ -7,8 +7,10 @@
 <body>
 	<h1>Account Search</h1>
 
-	<p>Enter an account number or search for an account owner
-		containing given specified text:</p>
+	<p>Enter an account number:</p>
+	<!-- TODO: owner search-->
+	<!--<p>Enter an account number or search for an account owner-->
+		<!--containing given specified text:</p>-->
 
 	<form action="#" th:object="${searchCriteria}" method="GET"
 		th:action="@{/accounts/dosearch}" class="form-horizontal">
@@ -37,27 +39,29 @@
 		</div>
 
 		<!-- Owner name field -->
-		<div class="form-group">
-			<label for="search" class="control-label col-xs-2">Owner
-				Search</label>
-			<div class="col-xs-2">
-				<input type="text" class="form-control" id="search"
-					th:field="*{searchText}" placeholder="Text from owner name"
-					style="width: 10em;" />
-			</div>
-			<div class="col-xs-8">Case-insensitive, supports part name
-				matching</div>
-		</div>
+		<!-- TODO: owner search-->
+		<!--<div class="form-group">-->
+			<!--<label for="search" class="control-label col-xs-2">Owner-->
+				<!--Search</label>-->
+			<!--<div class="col-xs-2">-->
+				<!--<input type="text" class="form-control" id="search"-->
+					<!--th:field="*{searchText}" placeholder="Text from owner name"-->
+					<!--style="width: 10em;" />-->
+			<!--</div>-->
+			<!--<div class="col-xs-8">Case-insensitive, supports part name-->
+				<!--matching</div>-->
+		<!--</div>-->
 
 		<!-- Owner name errors (if any) -->
-		<div class="form-group">
-			<div class="control-label col-xs-2">&nbsp;</div>
-			<div class="col-xs-2">&nbsp;</div>
-			<div class="col-xs-8">
-				<span th:if="${#fields.hasErrors('searchText')}"
-					style="color: red; font-size: smaller" th:errors="*{searchText}"></span>
-			</div>
-		</div>
+		<!-- TODO: owner search-->
+		<!--<div class="form-group">-->
+			<!--<div class="control-label col-xs-2">&nbsp;</div>-->
+			<!--<div class="col-xs-2">&nbsp;</div>-->
+			<!--<div class="col-xs-8">-->
+				<!--<span th:if="${#fields.hasErrors('searchText')}"-->
+					<!--style="color: red; font-size: smaller" th:errors="*{searchText}"></span>-->
+			<!--</div>-->
+		<!--</div>-->
 
 		<!--  Submit button -->
 		<div class="form-group">

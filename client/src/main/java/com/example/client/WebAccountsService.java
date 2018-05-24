@@ -13,8 +13,6 @@ import java.util.logging.Logger;
 
 /**
  * Hide the access to the microservice inside this local service.
- * 
- * @author Paul Chapman
  */
 @Service
 public class WebAccountsService {
@@ -54,22 +52,23 @@ public class WebAccountsService {
 				Account.class, accountNumber);
 	}
 
-	public List<Account> byOwnerContains(String name) {
-		logger.info("byOwnerContains() invoked:  for " + name);
-		Account[] accounts = null;
-
-		try {
-			accounts = restTemplate.getForObject(serviceUrl
-					+ "/accounts/owner/{name}", Account[].class, name);
-		} catch (HttpClientErrorException e) { // 404
-			// Nothing found
-		}
-
-		if (accounts == null || accounts.length == 0)
-			return null;
-		else
-			return Arrays.asList(accounts);
-	}
+	// TODO: owner search
+//	public List<Account> byOwnerContains(String name) {
+//		logger.info("byOwnerContains() invoked:  for " + name);
+//		Account[] accounts = null;
+//
+//		try {
+//			accounts = restTemplate.getForObject(serviceUrl
+//					+ "/accounts/owner/{name}", Account[].class, name);
+//		} catch (HttpClientErrorException e) { // 404
+//			// Nothing found
+//		}
+//
+//		if (accounts == null || accounts.length == 0)
+//			return null;
+//		else
+//			return Arrays.asList(accounts);
+//	}
 
 	public Account getByNumber(String accountNumber) {
 		Account account = restTemplate.getForObject(serviceUrl
