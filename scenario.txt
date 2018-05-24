@@ -1,0 +1,16 @@
+1. Start the application which manages bank accounts.
+
+2. Open accounts search page (“/accounts/search”) to make sure that the application works.
+   See that there is only one search available - by account ID.
+
+3. Navigate the search controller to get familiar with it. Look at the handler methods and corresponding views.
+
+4. We need to add more convenient search - by account owner.
+    4.1 Expose URL for the new search in accounts microservice.
+    4.2 Modify handler method in client microservice to accept owner name.
+    4.3 Add name input field to the search view.
+
+   There is a commented out code both in client and accounts microservices, uncomment it to add the new search.
+
+5. Restart required microservices to see the changes.
+6. Make sure that new search appeared in the application view and that it works.
