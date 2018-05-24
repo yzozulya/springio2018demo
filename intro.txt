@@ -11,7 +11,7 @@ commentary of what's going on in your mind.
 You can talk about things you like or don't like. Feel free to say anything that comes to your mind; don't worry about
 offending us since we’re here to better understand the usability problems in our software.
 
-We will record a little screencast of you so that we can go back and review things later and make sure we get
+We will record a little screencast of your actions so that we can go back and review things later and make sure we get
 everything right. We won't use your name in connection with the recordings or the results. The screencasts  will
 only be used internally and never shared anywhere with anyone.
 
