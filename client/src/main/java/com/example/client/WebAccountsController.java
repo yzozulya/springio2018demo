@@ -3,6 +3,7 @@ package com.example.client;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.StringUtils;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import java.util.List;
 import java.util.logging.Logger;
 
 /**
@@ -53,7 +55,7 @@ public class WebAccountsController {
 
 	// TODO: owner search
 //	@RequestMapping("/accounts/owner/{text}")
-//	public String ownerSearch(Model model, @PathVariable("text") String name) {
+	public String ownerSearch(Model model, @PathVariable("text") String name) {
 //		logger.info("web-service byOwner() invoked: " + name);
 //
 //		List<Account> accounts = accountsService.byOwnerContains(name);
@@ -61,8 +63,8 @@ public class WebAccountsController {
 //		model.addAttribute("search", name);
 //		if (accounts != null)
 //			model.addAttribute("accounts", accounts);
-//		return "accounts";
-//	}
+		return "accounts";
+	}
 
 	@RequestMapping(value = "/accounts/search", method = RequestMethod.GET)
 	public String searchForm(Model model) {
@@ -81,12 +83,11 @@ public class WebAccountsController {
 			return "accountSearch";
 
 		String accountNumber = criteria.getAccountNumber();
-		// TODO: owner search
-//		if (StringUtils.hasText(accountNumber)) {
+		if (StringUtils.hasText(accountNumber)) {
 			return byNumber(model, accountNumber);
-//		} else {
-//			String searchText = criteria.getSearchText();
-//			return ownerSearch(model, searchText);
-//		}
+		} else {
+			String searchText = criteria.getSearchText();
+			return ownerSearch(model, searchText);
+		}
 	}
 }
