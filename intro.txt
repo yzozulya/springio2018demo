@@ -7,6 +7,7 @@ how the IntelliJ IDEA interface works to accommodate your needs.
 We will conduct this study as a scenario which you will read from the document. You will go through the tasks provided
 in the document. While you are working on the tasks, we'd like you to think out loud, which means you give a running
 commentary of what's going on in your mind.
+// some change
 
 You can talk about things you like or don't like. Feel free to say anything that comes to your mind; don't worry about
 offending us since we’re here to better understand the usability problems in our software.
